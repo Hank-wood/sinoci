@@ -1,0 +1,12 @@
+{
+    "name": "fromyb/ci-fly",
+    "version": "1.0.0",
+    "private": true,
+    "require": {
+        "php": ">=5.5.9",
+        "codeigniter/framework": "*",
+        "illuminate/database": "*"
+    },
+    "author": "yozman",
+    "license": "MIT"
+}
