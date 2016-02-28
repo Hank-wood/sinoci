@@ -3,9 +3,11 @@
     "version": "1.0.0",
     "private": true,
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=5.4.0",
         "codeigniter/framework": "*",
-        "illuminate/database": "*"
+        "filp/whoops": "*",
+        "illuminate/database": "5.0.x",
+        "illuminate/pagination": "5.0.x"
     },
     "author": "yozman",
     "license": "MIT"
