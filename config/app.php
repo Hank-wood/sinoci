@@ -12,5 +12,12 @@ defined('ENVIRONMENT') or define('ENVIRONMENT', getenv('APP_ENV') ?: 'backend');
 // 定义 VIEWPATH 常量：模版目录
 defined('VIEWPATH') or define('VIEWPATH', APPPATH.'resources/views/');
 
+// 设置控制器目录
+$routing['directory'] = ENVIRONMENT;
+
+// 调试环境下私有配置
+if (getenv('APP_DEBUG')) {
+}
+
 // 请求 CI 框架入口
 require_once BASEPATH.'core/CodeIgniter.php';

@@ -136,7 +136,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -272,7 +272,7 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | application/views/errors/ directory.  Use a full server path with trailing slash.
 |
 */
-$config['error_views_path'] = '';
+$config['error_views_path'] = BASEPATH.'../application/views/errors/';
 
 /*
 |--------------------------------------------------------------------------
@@ -283,7 +283,7 @@ $config['error_views_path'] = '';
 | application/cache/ directory.  Use a full server path with trailing slash.
 |
 */
-$config['cache_path'] = '';
+$config['cache_path'] = APPPATH.'storage/cache/';
 
 /*
 |--------------------------------------------------------------------------

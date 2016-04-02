@@ -1,9 +1,12 @@
 <?php
 
-class Welcome extends CI_Controller
-{
-    public function index ()
+use App\Controller;
+
+class Welcome extends CI_Controller {
+
+    public function index()
     {
-        echo '11';
+        echo (new Controller)->welcome();
     }
+
 }
