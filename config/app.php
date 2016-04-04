@@ -1,7 +1,7 @@
 <?php
 
 // 定义 APPPATH 常量：应用目录
-defined('APPPATH') or define('APPPATH', substr(__DIR__, 0, -6));
+defined('APPPATH') or define('APPPATH', dirname(__DIR__).'/');
 
 // 定义 BASEPATH 常量：CI 框架目录
 defined('BASEPATH') or define('BASEPATH', APPPATH.'vendor/codeigniter/framework/system/');
