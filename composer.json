@@ -6,13 +6,13 @@
     },
     "require": {
         "php": ">=5.4.0",
-        "codeigniter/framework": "3.x",
-        "illuminate/database": "5.0.x",
-        "illuminate/pagination": "5.0.x"
+        "codeigniter/framework": "3.*",
+        "illuminate/database": "5.0.*",
+        "illuminate/pagination": "5.0.*"
     },
     "require-dev": {
         "php": ">=5.5.9",
-        "filp/whoops": "2.x"
+        "filp/whoops": "2.*"
     },
     "autoload": {
         "files": [
