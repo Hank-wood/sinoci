@@ -8,7 +8,7 @@ class Welcome extends Controller {
         $this->load->library('parser');
 
         // 添加视图目录
-        $this->load->add_package_path(BASEPATH.'../application/');
+        $this->load->add_package_path(dirname(BASEPATH).'/application/');
 
         // 设置 $elapsed_time 变量
         $elapsed_time =
