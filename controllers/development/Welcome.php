@@ -2,8 +2,7 @@
 
 class Welcome extends Controller {
 
-    public function index()
-    {
+    public function index () {
         // 加载解析类库
         $this->load->library('parser');
 
