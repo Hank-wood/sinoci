@@ -16,11 +16,7 @@ defined('VIEWPATH') or define('VIEWPATH', APPPATH.'resources/views/');
 $routing['directory'] = ENVIRONMENT;
 
 // 配置报错
-error_reporting(getenv('APP_DEBUG') ? -1 : 0);
-
-// 加载环境初始化配置
-file_exists(dirname(__FILE__).'/'.ENVIRONMENT.'/app.php') &&
-    require_once dirname(__FILE__).'/'.ENVIRONMENT.'/app.php';
+ini_set('display_errors', getenv('APP_DEBUG') OR ENVIRONMENT === 'development');
 
 // 请求 CI 框架入口
 require_once BASEPATH.'core/CodeIgniter.php';
