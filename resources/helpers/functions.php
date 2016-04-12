@@ -30,3 +30,28 @@ if ( ! function_exists('useEloquent')) {
     }
 
 }
+
+if ( ! function_exists('resource')) {
+
+    function resource (&$_route, $_rule) {
+        foreach ($_rule as $k => $v) {
+            // index
+            $_route[$k]['GET'] = $v.'/index';
+            // create
+            $_route[$k.'/create']['GET'] = $v.'/create';
+            // store
+            $_route[$k]['POST'] = $v.'/store';
+            // show
+            $_route[$k.'/(:num)']['GET'] = $v.'/show/$1';
+            // edit
+            $_route[$k.'/(:num)/edit']['GET'] = $v.'/edit/$1';
+            // update
+            $_route[$k.'/(:num)']['PUT'] = $v.'/update/$1';
+            // patch
+            $_route[$k.'/(:num)']['PATCH'] = $v.'/patch/$1';
+            // destroy
+            $_route[$k.'/(:num)']['DELETE'] = $v.'/destroy/$1';
+        }
+    }
+
+}
