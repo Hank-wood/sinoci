@@ -2,7 +2,7 @@
 
 if ( ! function_exists('wtf')) {
 
-    function wtf () {
+    function wtf ($_input) {
         echo '<pre style="font:12px/20px Consolas,Monaco,Courier New,Courier,monospace">';
         var_dump($_input);
         exit;
@@ -12,6 +12,10 @@ if ( ! function_exists('wtf')) {
 if ( ! function_exists('useEloquent')) {
 
     function useEloquent ($_input) {
+
+        \Illuminate\Pagination\Paginator::currentPageResolver(function () {
+            return @$_GET['page'];
+        });
 
         $manager = new \Illuminate\Database\Capsule\Manager;
 
@@ -26,6 +30,7 @@ if ( ! function_exists('useEloquent')) {
             'prefix'    => $_input['dbprefix']
         ]);
 
+        $manager->setAsGlobal();
         $manager->bootEloquent();
     }
 

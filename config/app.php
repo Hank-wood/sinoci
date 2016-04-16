@@ -28,5 +28,8 @@ else {
     ini_set('display_errors', FALSE);
 }
 
+// 设置默认运行时区
+date_default_timezone_set('PRC');
+
 // 请求 CI 框架入口
 require_once BASEPATH.'core/CodeIgniter.php';
