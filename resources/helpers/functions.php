@@ -14,7 +14,7 @@ if ( ! function_exists('useEloquent')) {
     function useEloquent ($_input) {
 
         \Illuminate\Pagination\Paginator::currentPageResolver(function () {
-            return @$_GET['page'];
+            return isset($_GET['page']) ? $_GET['page'] : 1;
         });
 
         $manager = new \Illuminate\Database\Capsule\Manager;
