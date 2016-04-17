@@ -4,20 +4,20 @@ namespace App\Resources;
 
 class Resource {
 
-	public function index () {}
+	static function index () {}
 
-	public function create () {}
+	static function create () {}
 
-	public function store () {}
+	static function store () {}
 
-	public function show () {}
+	static function show () {}
 
-	public function edit () {}
+	static function edit () {}
 
-	public function update () {}
+	static function update () {}
 
-	public function patch () {}
+	static function patch () {}
 
-	public function destroy () {}
+	static function destroy () {}
 
 }

@@ -19,17 +19,21 @@ defined('VIEWPATH') OR
 // 设置控制器目录
 $routing['directory'] = ENVIRONMENT;
 
-// 调试环境下配置
-if (getenv('APP_DEBUG') OR ENVIRONMENT === 'development') {
-    ini_set('display_errors', TRUE);
-    ini_set('opcache.enable', FALSE);
-}
-else {
-    ini_set('display_errors', FALSE);
-}
+// 关闭错误提示输出
+ini_set('display_errors', FALSE);
 
 // 设置默认运行时区
 date_default_timezone_set('PRC');
+
+// 开发环境下默认打开调试
+ENVIRONMENT === 'development' &&
+    putenv('APP_DEBUG=TRUE');
+
+// 调试环境下配置
+if (getenv('APP_DEBUG')) {
+    ini_set('display_errors', TRUE);
+    ini_set('opcache.enable', FALSE);
+}
 
 // 请求 CI 框架入口
 require_once BASEPATH.'core/CodeIgniter.php';
