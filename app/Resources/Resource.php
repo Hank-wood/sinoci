@@ -4,20 +4,20 @@ namespace App\Resources;
 
 class Resource {
 
-	static function index () {}
+	static function index ($_input = []) {}
 
-	static function create () {}
+	static function create ($_input = []) {}
 
-	static function store () {}
+	static function store ($_input = []) {}
 
-	static function show () {}
+	static function show ($_input = []) {}
 
-	static function edit () {}
+	static function edit ($_input = []) {}
 
-	static function update () {}
+	static function update ($_input = []) {}
 
-	static function patch () {}
+	static function patch ($_input = []) {}
 
-	static function destroy () {}
+	static function destroy ($_input = []) {}
 
 }
