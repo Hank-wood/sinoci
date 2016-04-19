@@ -14,3 +14,6 @@ $config['error_views_path'] = dirname(BASEPATH).'/application/views/errors/';
 
 // 配置 缓存目录
 $config['cache_path'] = APPPATH.'storage/cache/';
+
+// 配置 会话目录
+$config['sess_save_path'] = APPPATH.'storage/sessions';
