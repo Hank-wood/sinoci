@@ -32,6 +32,7 @@ if ( ! function_exists('useEloquent')) {
 
         $manager->setAsGlobal();
         $manager->bootEloquent();
+        
         getenv('APP_DEBUG') &&
             $manager->enableQueryLog();
     }
