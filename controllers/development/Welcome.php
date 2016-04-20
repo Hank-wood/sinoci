@@ -24,18 +24,16 @@ class Welcome extends Controller {
                 TRUE
             );
 
-        // 过滤多余信息
+        // 过滤多余信息并输出
         // TODO
-        $welcome_message =
+        // 1. 过滤正则
+        $this->_output =
             preg_replace(
                 '/<p.+\/code>/',
                 '',
                 $welcome_message,
                 1
             );
-
-        // 输出页面
-        echo $welcome_message;
     }
 
 }

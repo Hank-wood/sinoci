@@ -43,32 +43,44 @@ if ( ! function_exists('useEloquent')) {
 if ( ! function_exists('db')) {
 
     function db () {
-        return \Illuminate\Database\Capsule\Manager;
+        return \Illuminate\Database\Capsule\Manager::class;
     }
 
 }
 
 if ( ! function_exists('resource')) {
 
-    function resource (&$_route, $_rule) {
-        foreach ($_rule as $k => $v) {
-            // index
-            $_route[$k]['GET'] = $v.'/index';
-            // create
-            $_route[$k.'/create']['GET'] = $v.'/create';
-            // store
-            $_route[$k]['POST'] = $v.'/store';
-            // show
-            $_route[$k.'/(:num)']['GET'] = $v.'/show/$1';
-            // edit
-            $_route[$k.'/(:num)/edit']['GET'] = $v.'/edit/$1';
-            // update
-            $_route[$k.'/(:num)']['PUT'] = $v.'/update/$1';
-            // patch
-            $_route[$k.'/(:num)']['PATCH'] = $v.'/patch/$1';
-            // destroy
-            $_route[$k.'/(:num)']['DELETE'] = $v.'/destroy/$1';
+    function resource ($_resource = '') {
+
+        if (empty($_resource)) {
+            return new \App\Resources\Resource;
         }
+
+        if (class_exists("\\App\\Resources\\{$_resource}")) {
+            return new "\\App\\Resources\\{$_resource}";
+        }
+
+        return new \App\Resources\Resource($_resource);
+    }
+
+}
+
+if ( ! function_exists('service')) {
+
+    function service ($_service = '') {
+        return empty($_service) ?
+            new \App\Services\Service :
+            new "\\App\\Services\\{$_service}";
+    }
+
+}
+
+if ( ! function_exists('table')) {
+
+    function table ($_table = '') {
+        return empty($_table) ?
+            new \App\Tables\Table :
+            new "\\App\\Tables\\{$_table}";
     }
 
 }

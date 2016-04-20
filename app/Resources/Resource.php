@@ -4,13 +4,23 @@ namespace App\Resources;
 
 class Resource {
 
-	static function index ($_input = []) {}
+    protected $table;
+
+    public function __construct ($_name = '') {
+        $this->table = table($_name);
+    }
+
+	static function index ($_input = []) {
+        return $this->table->getAll();
+    }
 
 	static function create ($_input = []) {}
 
 	static function store ($_input = []) {}
 
-	static function show ($_input = []) {}
+	static function show ($_input = []) {
+        return $this->table->findById($_input['id']);
+    }
 
 	static function edit ($_input = []) {}
 
