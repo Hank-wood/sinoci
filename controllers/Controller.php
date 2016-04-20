@@ -1,18 +1,24 @@
 <?php
 
 class Controller extends CI_Controller {
-    
+
     protected $_output;
 
     public function get ($_key = NULL, $_value = NULL) {
-        return $this->input->get($_key) ?: $_value;
+        return
+            $this->input->get($_key) ?:
+            $_value;
     }
 
     public function post ($_key = NULL, $_value = NULL) {
         if ($this->method() !== 'post') {
-            return $this->input->input_stream($_key) ?: $_value;
+            return
+                $this->input->input_stream($_key) ?:
+                $_value;
         }
-        return $this->input->post($_key) ?: $_value;
+        return
+            $this->input->post($_key) ?:
+            $_value;
     }
 
     public function method () {
@@ -20,7 +26,6 @@ class Controller extends CI_Controller {
     }
 
     public function json ($_input) {
-
         is_array($_input) &&
             $_input = json_encode($_input);
 

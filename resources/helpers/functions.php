@@ -32,11 +32,18 @@ if ( ! function_exists('useEloquent')) {
 
         $manager->setAsGlobal();
         $manager->bootEloquent();
-        
+
         getenv('APP_DEBUG') &&
             $manager->enableQueryLog();
     }
 
+}
+
+if ( ! function_exists('enableQueryLog')) {
+
+    function enableQueryLog () {
+        return \Illuminate\Database\Capsule\Manager::connection()->enableQueryLog();
+    }
 }
 
 if ( ! function_exists('getQueryLog')) {
