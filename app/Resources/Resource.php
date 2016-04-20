@@ -7,12 +7,8 @@ class Resource {
     protected $table;
 
     public function __construct ($_name = '') {
-        if (empty($_name)) {
-            $this->table = table($this->table ?: __CLASS__);
-        }
-        else {
-            $this->table = table($_name);
-        }
+        $table = $_name ?: ($this->table ?: __CLASS__);
+        $this->table = table($table);
     }
 
 	static function index ($_input = []) {
