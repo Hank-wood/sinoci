@@ -7,6 +7,7 @@ if ( ! function_exists('wtf')) {
         var_dump($_input);
         exit;
     }
+
 }
 
 if ( ! function_exists('useEloquent')) {
@@ -17,7 +18,7 @@ if ( ! function_exists('useEloquent')) {
             return isset($_GET['page']) ? $_GET['page'] : 1;
         });
 
-        $manager = new \Illuminate\Database\Capsule\Manager;
+        $manager = new db();
 
         $manager->addConnection([
             'driver'    => 'mysql',
@@ -39,17 +40,10 @@ if ( ! function_exists('useEloquent')) {
 
 }
 
-if ( ! function_exists('enableQueryLog')) {
+if ( ! function_exists('db')) {
 
-    function enableQueryLog () {
-        return \Illuminate\Database\Capsule\Manager::connection()->enableQueryLog();
-    }
-}
-
-if ( ! function_exists('getQueryLog')) {
-
-    function getQueryLog () {
-        return \Illuminate\Database\Capsule\Manager::connection()->getQueryLog();
+    function db () {
+        return \Illuminate\Database\Capsule\Manager;
     }
 
 }
