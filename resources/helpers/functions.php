@@ -57,8 +57,13 @@ if ( ! function_exists('resource')) {
 if ( ! function_exists('service')) {
 
     function service ($_service = '') {
-        $class = '\\App\\Services\\' . ($_service ?: 'Service');
-        return new $class;
+
+        if (class_exists("\\App\\Services\\{$_service}")) {
+            $class = '\\App\\Services\\' . $_service;
+            return new $class;
+        }
+
+        return new \App\Services\Service;
     }
 
 }
@@ -66,8 +71,13 @@ if ( ! function_exists('service')) {
 if ( ! function_exists('table')) {
 
     function table ($_table = '') {
-        $class = '\\App\\Tables\\' . ($_table ?: 'Table');
-        return new $class;
+
+        if (class_exists("\\App\\Tables\\{$_table}")) {
+            $class = '\\App\\Tables\\' . $_table;
+            return new $class;
+        }
+
+        return new \App\Tables\Table;
     }
 
 }
