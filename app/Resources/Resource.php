@@ -11,8 +11,13 @@ class Resource {
         $this->table = table($table);
     }
 
+    static function getTable () {
+        $resource = new self;
+        return $resource->table;
+    }
+
 	static function index ($_input = []) {
-        return $this->table->getAll();
+        return $this->getTable()->getAll();
     }
 
 	static function create ($_input = []) {}
@@ -20,7 +25,7 @@ class Resource {
 	static function store ($_input = []) {}
 
 	static function show ($_input = []) {
-        return $this->table->findById($_input['id']);
+        return $this->getTable()->findById($_input['id']);
     }
 
 	static function edit ($_input = []) {}

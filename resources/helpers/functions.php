@@ -18,7 +18,7 @@ if ( ! function_exists('useEloquent')) {
             return isset($_GET['page']) ? $_GET['page'] : 1;
         });
 
-        $manager = new db();
+        $manager = new \Illuminate\Database\Capsule\Manager;
 
         $manager->addConnection([
             'driver'    => 'mysql',
@@ -40,24 +40,13 @@ if ( ! function_exists('useEloquent')) {
 
 }
 
-if ( ! function_exists('db')) {
-
-    function db () {
-        return \Illuminate\Database\Capsule\Manager::class;
-    }
-
-}
-
 if ( ! function_exists('resource')) {
 
     function resource ($_resource = '') {
 
-        if (empty($_resource)) {
-            return new \App\Resources\Resource;
-        }
-
         if (class_exists("\\App\\Resources\\{$_resource}")) {
-            return new "\\App\\Resources\\{$_resource}";
+            $class = '\\App\\Resources\\' . $_resource;
+            return new $class;
         }
 
         return new \App\Resources\Resource($_resource);
@@ -68,9 +57,8 @@ if ( ! function_exists('resource')) {
 if ( ! function_exists('service')) {
 
     function service ($_service = '') {
-        return empty($_service) ?
-            new \App\Services\Service :
-            new "\\App\\Services\\{$_service}";
+        $class = '\\App\\Services\\' . ($_service ?: 'Service');
+        return new $class;
     }
 
 }
@@ -78,9 +66,8 @@ if ( ! function_exists('service')) {
 if ( ! function_exists('table')) {
 
     function table ($_table = '') {
-        return empty($_table) ?
-            new \App\Tables\Table :
-            new "\\App\\Tables\\{$_table}";
+        $class = '\\App\\Tables\\' . ($_table ?: 'Table');
+        return new $class;
     }
 
 }

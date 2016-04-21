@@ -3,19 +3,19 @@
 // 引入 初始路由配置
 require_once dirname(BASEPATH).'/application/config/routes.php';
 
-// index
+// api:index
 $route['api/(\w+)']['GET'] = '$1/index';
-// create
+// api:create
 $route['api/(\w+)/create']['GET'] = '$1/create';
-// store
+// api:store
 $route['api/(\w+)']['POST'] = '$1/store';
-// show
+// api:show
 $route['api/(\w+)/(:num)']['GET'] = '$1/show/$2';
-// edit
+// api:edit
 $route['api/(\w+)/(:num)/edit']['GET'] = '$1/edit/$2';
-// update
+// api:update
 $route['api/(\w+)/(:num)']['PUT'] = '$1/update/$2';
-// patch
+// api:patch
 $route['api/(\w+)/(:num)']['PATCH'] = '$1/patch/$2';
-// destroy
+// api:destroy
 $route['api/(\w+)/(:num)']['DELETE'] = '$1/destroy/$2';
