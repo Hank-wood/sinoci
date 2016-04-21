@@ -17,7 +17,12 @@ class Resource {
 
 	protected function create ($_input = []) {}
 
-	protected function store ($_input = []) {}
+	protected function store ($_input = []) {
+        foreach ($_input as $k => $v) {
+            $this->table->$k = $v;
+        }
+        return $this->table->save();
+    }
 
 	protected function show ($_input = []) {
         return $this->table->findById($_input['id']);
