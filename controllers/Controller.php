@@ -3,6 +3,12 @@
 class Controller extends CI_Controller {
 
     protected $_output;
+    protected $resource;
+
+    public function __construct () {
+        parent::__construct();
+        $this->resource = resource(get_called_class());
+    }
 
     public function get ($_key = NULL, $_value = NULL) {
         return
