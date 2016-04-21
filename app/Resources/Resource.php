@@ -7,33 +7,36 @@ class Resource {
     protected $table;
 
     public function __construct ($_name = '') {
-        $table = $_name ?: ($this->table ?: __CLASS__);
+        $table = $_name ?: ($this->table ?: substr(get_called_class(), 14));
         $this->table = table($table);
     }
 
-    static function getTable () {
-        $resource = new self;
-        return $resource->table;
+	protected function index ($_input = []) {
+        return $this->table->getAll();
     }
 
-	static function index ($_input = []) {
-        return $this->getTable()->getAll();
+	protected function create ($_input = []) {}
+
+	protected function store ($_input = []) {}
+
+	protected function show ($_input = []) {
+        return $this->table->findById($_input['id']);
     }
 
-	static function create ($_input = []) {}
+	protected function edit ($_input = []) {}
 
-	static function store ($_input = []) {}
+	protected function update ($_input = []) {}
 
-	static function show ($_input = []) {
-        return $this->getTable()->findById($_input['id']);
+	protected function patch ($_input = []) {}
+
+	protected function destroy ($_input = []) {}
+
+    public function __call ($_func, $_args) {
+        return call_user_func([$this, $_func], $_args);
     }
 
-	static function edit ($_input = []) {}
-
-	static function update ($_input = []) {}
-
-	static function patch ($_input = []) {}
-
-	static function destroy ($_input = []) {}
+    static function __callStatic ($_func, $_args) {
+        return call_user_func([new static, $_func], $_args);
+    }
 
 }
