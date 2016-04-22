@@ -25,8 +25,12 @@ class Table extends Model {
         return $query->orWhereRaw($_key, 'like', "%{$_value}%");
     }
 
-    public function scopeGetAll ($query) {
-        return $query->paginate();
+    public function scopeGetAll ($query, $_where = []) {
+        return $query->where($_where)->paginate();
+    }
+
+    public function scopeFindOne ($query, $_where = []) {
+        return $query->where($_where)->firstOrFail();
     }
 
     public function scopeFindById ($query, $_id) {

@@ -12,7 +12,7 @@ class Resource {
     }
 
 	protected function index ($_input = []) {
-        return $this->table->getAll();
+        return $this->table->getAll($_input);
     }
 
 	protected function create ($_input = []) {}
@@ -25,7 +25,9 @@ class Resource {
     }
 
 	protected function show ($_input = []) {
-        return $this->table->findById($_input['id']);
+        return isset($_input['id']) ?
+            $this->table->findById($_input['id']) :
+            $this->table->findOne($_input);
     }
 
 	protected function edit ($_input = []) {}
