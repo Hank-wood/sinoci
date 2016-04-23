@@ -55,9 +55,9 @@ class Controller extends CI_Controller {
             $this->parser
                 ->parse($view[0], $_data, TRUE);
 
-        return
-            $this->parser
-                ->parse($layout, $_data, TRUE);
+        return file_exists($layout) ?
+            $this->parser->parse($layout, $_data, TRUE) :
+            $_data['content'];
     }
 
     public function __destruct () {
