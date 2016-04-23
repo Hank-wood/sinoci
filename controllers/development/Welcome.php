@@ -3,9 +3,6 @@
 class Welcome extends Controller {
 
     public function index () {
-        // 加载解析类库
-        $this->load->library('parser');
-
         // 添加视图目录
         $this->load->add_package_path(dirname(BASEPATH).'/application/');
 
@@ -18,7 +15,7 @@ class Welcome extends Controller {
 
         // 渲染模版
         $welcome_message =
-            $this->parser->parse(
+            $this->view(
                 'welcome_message',
                 compact('elapsed_time'),
                 TRUE

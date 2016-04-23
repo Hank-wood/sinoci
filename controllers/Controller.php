@@ -4,6 +4,7 @@ class Controller extends CI_Controller {
 
     protected $_output;
     protected $resource;
+    protected $layout;
 
     public function __construct () {
         parent::__construct();
@@ -38,6 +39,25 @@ class Controller extends CI_Controller {
         return $this->output
             ->set_content_type('json')
             ->set_output($_input);
+    }
+
+    public function view ($_view, $_data = []) {
+        $view = explode(':', $_view);
+
+        isset($view[1]) &&
+            $this->layout = $view[1];
+
+        $layout =
+            $this->layout ?:
+            strtolower(get_called_class());
+
+        $_data['content'] =
+            $this->parser
+                ->parse($view[0], $_data, TRUE);
+
+        return
+            $this->parser
+                ->parse($layout, $_data, TRUE);
     }
 
     public function __destruct () {
