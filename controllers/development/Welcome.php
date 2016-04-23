@@ -17,8 +17,7 @@ class Welcome extends Controller {
         $welcome_message =
             $this->view(
                 'welcome_message',
-                compact('elapsed_time'),
-                TRUE
+                compact('elapsed_time')
             );
 
         // 过滤多余信息并输出
