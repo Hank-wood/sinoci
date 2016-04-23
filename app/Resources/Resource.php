@@ -39,7 +39,7 @@ class Resource {
 	protected function destroy ($_input = []) {}
 
     public function __call ($_func, $_args) {
-        return call_user_func_array([$this, $_func], $_args);
+        return call_user_func_array([$this->table, $_func], $_args);
     }
 
     static function __callStatic ($_func, $_args) {
