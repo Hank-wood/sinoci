@@ -3,21 +3,19 @@
 class Controller extends CI_Controller {
 
     protected $_output;
-    protected $resource;
     protected $layout;
 
     public function __construct () {
         parent::__construct();
-        $this->resource = resource(get_called_class());
     }
 
-    public function get ($_key = NULL, $_value = NULL) {
+    public function get ($_key = null, $_value = null) {
         return
             $this->input->get($_key) ?:
             $_value;
     }
 
-    public function post ($_key = NULL, $_value = NULL) {
+    public function post ($_key = null, $_value = null) {
         if ($this->method() !== 'post') {
             return
                 $this->input->input_stream($_key) ?:

@@ -1,35 +1,24 @@
 <?php
 
+use App\Models\Site\ShowWelcome;
+use App\Models\Site\LinkUserGuide;
+
 class Welcome extends Controller {
 
+    use ShowWelcome, LinkUserGuide;
+
     public function index () {
-        // 添加视图目录
-        $this->load->add_package_path(dirname(BASEPATH).'/application/');
-
-        // 设置 $elapsed_time 变量
-        $elapsed_time =
-            $this->benchmark->elapsed_time(
-                'loading_time:_base_classes_start',
-                'loading_time:_base_classes_end'
-            );
-
-        // 渲染模版
-        $welcome_message =
-            $this->view(
-                'welcome_message',
-                compact('elapsed_time')
-            );
-
-        // 过滤多余信息并输出
-        // TODO
-        // 1. 过滤正则
         $this->_output =
-            preg_replace(
-                '/<p.+\/code>/',
-                '',
-                $welcome_message,
-                1
-            );
+            $this->showWelcome();
+    }
+
+    public function guide () {
+        // 验证访问权限
+        if (is_dir(APPPATH.'public/user_guide'))
+            return;
+
+        $this->_output =
+            $this->linkUserGuide();
     }
 
 }
