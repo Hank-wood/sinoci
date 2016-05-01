@@ -49,7 +49,7 @@ if ( ! function_exists('resource')) {
             return new $class;
         }
 
-        return new \App\Resources\Resource($_resource);
+        return new \App\Service\Resource($_resource);
     }
 
 }
