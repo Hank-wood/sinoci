@@ -30,11 +30,7 @@ class Table extends Model {
     }
 
     public function scopeFindOne ($query, $_where = []) {
-        return $query->where($_where)->firstOrFail();
-    }
-
-    public function scopeFindById ($query, $_id) {
-        return $query->findOrFail($_id);
+        return $query->where($_where)->first();
     }
 
 }

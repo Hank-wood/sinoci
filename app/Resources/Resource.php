@@ -24,15 +24,20 @@ class Resource {
         return $this->table->save();
     }
 
-	protected function show ($_input = []) {
-        return isset($_input['id']) ?
-            $this->table->findById($_input['id']) :
-            $this->table->findOne($_input);
+	protected function show ($_input) {
+        return is_array($_input) ?
+            $this->table->findOne($_input) :
+            $this->table->find($_input);
     }
 
 	protected function edit ($_input = []) {}
 
-	protected function update ($_input = []) {}
+	protected function update ($_where = [], $_update = []) {
+        return
+            $this->table
+                ->where($_where)
+                ->update($_update);
+    }
 
 	protected function patch ($_input = []) {}
 
