@@ -31,6 +31,10 @@ class Controller extends CI_Controller {
     }
 
     public function json ($_input) {
+
+        $_input instanceof \Illuminate\Pagination\AbstractPaginator &&
+            $_input = $_input->getCollection();
+
         is_array($_input) &&
             $_input = json_encode($_input);
 
