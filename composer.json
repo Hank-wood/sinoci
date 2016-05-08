@@ -12,7 +12,6 @@
     },
     "require-dev": {
         "php": ">=5.5.9",
-        "filp/whoops": "2.*",
         "symfony/var-dumper": "2.6.*"
     },
     "autoload": {

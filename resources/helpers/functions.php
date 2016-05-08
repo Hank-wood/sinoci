@@ -31,7 +31,7 @@ if ( ! function_exists('useEloquent')) {
             'prefix'    => $_input['dbprefix']
         ]);
 
-        $manager->setAsGlobal();
+        // $manager->setAsGlobal();
         $manager->bootEloquent();
 
         getenv('APP_DEBUG') &&

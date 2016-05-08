@@ -39,7 +39,7 @@ class Controller extends CI_Controller {
             $_input = json_encode($_input);
 
         return $this->output
-            ->set_content_type('json')
+            ->set_content_type(func_get_arg(0) === $_input ?: 'json')
             ->set_output($_input);
     }
 
@@ -55,10 +55,10 @@ class Controller extends CI_Controller {
 
         $_data['content'] =
             $this->parser
-                ->parse($view[0], $_data, TRUE);
+                ->parse($view[0], $_data, true);
 
         return file_exists($layout) ?
-            $this->parser->parse($layout, $_data, TRUE) :
+            $this->parser->parse($layout, $_data, true) :
             $_data['content'];
     }
 

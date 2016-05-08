@@ -1,4 +1,5 @@
 .idea
 public/user_guide
+storage
 vendor
 composer.lock

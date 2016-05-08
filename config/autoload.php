@@ -4,7 +4,7 @@
 require_once dirname(BASEPATH).'/application/config/autoload.php';
 
 // 开启 数据库 自动加载
-$autoload['libraries'][] = 'database';
+// $autoload['libraries'][] = 'database';
 
 // 开启 会话 自动加载
 $autoload['libraries'][] = 'session';
