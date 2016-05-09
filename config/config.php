@@ -4,7 +4,7 @@
 require_once dirname(BASEPATH).'/application/config/config.php';
 
 // 配置 composer 自动加载
-$config['composer_autoload'] = TRUE;
+$config['composer_autoload'] = true;
 
 // 配置 日志目录
 $config['log_path'] = APPPATH.'storage/logs/';
@@ -17,3 +17,9 @@ $config['cache_path'] = APPPATH.'storage/cache/';
 
 // 配置 会话目录
 $config['sess_save_path'] = APPPATH.'storage/sessions';
+
+// 启用钩子系统
+$config['enable_hooks'] = true;
+
+// 设置私有密钥
+$config['encryption_key'] = 'whattheflysinoci';
