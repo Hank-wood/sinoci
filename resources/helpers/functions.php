@@ -13,6 +13,12 @@ if ( ! function_exists('wtf')) {
 if ( ! function_exists('useEloquent')) {
 
     function useEloquent ($_input) {
+        
+        if (implode($_input) === '') {
+            $CI =& get_instance();
+            $CI->config->load('database');
+            $_input = $db[$active_group];
+        }
 
         \Illuminate\Pagination\Paginator::currentPageResolver(function () {
             return isset($_GET['page']) ? $_GET['page'] : 1;
