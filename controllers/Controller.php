@@ -38,9 +38,10 @@ class Controller extends CI_Controller {
         is_array($_input) &&
             $_input = json_encode($_input);
 
-        return $this->output
-            ->set_content_type(func_get_arg(0) === $_input ?: 'json')
-            ->set_output($_input);
+        func_get_arg(0) === $_input OR
+            $this->output->set_content_type('json');
+
+        return $this->output->set_output($_input);
     }
 
     public function view ($_view, $_data = []) {

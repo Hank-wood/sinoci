@@ -20,7 +20,7 @@ defined('VIEWPATH') OR
 $routing['directory'] = ENVIRONMENT;
 
 // 关闭错误提示输出
-ini_set('display_errors', FALSE);
+ini_set('display_errors', false);
 
 // 设置默认运行时区
 date_default_timezone_set('PRC');
@@ -31,8 +31,8 @@ ENVIRONMENT === 'development' &&
 
 // 调试环境下配置
 if (getenv('APP_DEBUG')) {
-    ini_set('display_errors', TRUE);
-    ini_set('opcache.enable', FALSE);
+    ini_set('display_errors', true);
+    ini_set('opcache.enable', false);
 }
 
 // 请求 CI 框架入口
