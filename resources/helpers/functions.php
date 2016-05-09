@@ -14,7 +14,7 @@ if ( ! function_exists('useEloquent')) {
 
     function useEloquent ($_input) {
         
-        if (implode($_input) === '') {
+        if ('' === implode($_input)) {
             $CI =& get_instance();
             $CI->config->load('database');
             $_input = $db[$active_group];
