@@ -55,8 +55,7 @@ class Controller extends CI_Controller {
             strtolower(get_called_class());
 
         $_data['content'] =
-            $this->parser
-                ->parse($view[0], $_data, true);
+            $this->parser->parse($view[0], $_data, true);
 
         return file_exists($layout) ?
             $this->parser->parse($layout, $_data, true) :
@@ -64,6 +63,10 @@ class Controller extends CI_Controller {
     }
 
     public function __destruct () {
+
+        getenv('APP_DEBUG') &&
+            $this->output->enable_profiler(true);
+
         $this->_output &&
             $this->json($this->_output)->_display();
     }
