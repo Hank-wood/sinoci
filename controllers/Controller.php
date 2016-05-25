@@ -64,7 +64,7 @@ class Controller extends CI_Controller {
 
     public function __destruct () {
 
-        getenv('APP_DEBUG') && $this->input->is_ajax_request() &&
+        getenv('APP_DEBUG') && ! $this->input->is_ajax_request() &&
             $this->output->enable_profiler(true);
 
         $this->_output &&
