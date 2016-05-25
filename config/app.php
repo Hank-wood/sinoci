@@ -27,7 +27,7 @@ date_default_timezone_set('PRC');
 
 // 开发环境下默认打开调试
 ENVIRONMENT === 'development' &&
-    putenv('APP_DEBUG=TRUE');
+    putenv('APP_DEBUG=true');
 
 // 调试环境下配置
 if (getenv('APP_DEBUG')) {
