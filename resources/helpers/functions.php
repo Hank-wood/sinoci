@@ -12,25 +12,15 @@ if ( ! function_exists('wtf')) {
 
 if ( ! function_exists('useEloquent')) {
 
-    function useEloquent ($_input) {
+    function enableEloquent () {
 
         \Illuminate\Pagination\Paginator::currentPageResolver(function () {
             return isset($_GET['page']) ? $_GET['page'] : 1;
         });
 
         $manager = new \Illuminate\Database\Capsule\Manager;
-
-        $manager->addConnection([
-            'driver'    => 'mysql',
-            'host'      => $_input['hostname'],
-            'database'  => $_input['database'],
-            'username'  => $_input['username'],
-            'password'  => $_input['password'],
-            'charset'   => $_input['char_set'],
-            'collation' => $_input['dbcollat'],
-            'prefix'    => $_input['dbprefix']
-        ]);
-
+        
+        $manager->addConnection(config_item('db'));
         $manager->setAsGlobal();
         $manager->bootEloquent();
 
