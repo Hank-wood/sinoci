@@ -2,10 +2,16 @@
 
 namespace App\Services;
 
-class Controller {
+class Controller
+{
 
-    public function __get (String $name) {
-        return load_class($name === 'load' ? 'Loader' : is_loaded()[$name], 'core');
+    public function __get(String $name)
+    {
+        // 修补 $this->load
+        $name === 'load' && $name = 'Loader';
+
+        // 返回 CI 核心模块
+        return load_class($name ?: is_loaded()[$name], 'core');
     }
 
 }
