@@ -2,6 +2,10 @@
 
 namespace App\Services;
 
-use CI_Controller;
+class Controller {
 
-class Controller extends CI_Controller {}
+    public function __get (String $name) {
+        return load_class($name === 'load' ? 'Loader' : is_loaded()[$name], 'core');
+    }
+
+}
