@@ -1,50 +1,11 @@
 <?php
 
-$hook['pre_system'] = [
-    'class'    => 'App\Services\Hook',
-    'function' => 'preSystem',
-    'filename' => 'Hook.php',
-    'filepath' => 'app/Services'
-];
+$hook['pre_system'][] = function () {
 
-$hook['pre_controller'] = [
-    'class'    => 'App\Services\Hook',
-    'function' => 'preController',
-    'filename' => 'Hook.php',
-    'filepath' => 'app/Services'
-];
+    // 加载数据库配置
+    load_class('Config', 'core')->load('database');
 
-$hook['post_controller_constructor'] = [
-    'class'    => 'App\Services\Hook',
-    'function' => 'postControllerConstructor',
-    'filename' => 'Hook.php',
-    'filepath' => 'app/Services'
-];
+    // 开启 Eloquent ORM
+    config('enable_eloquent') && useEloquent(config('db'));
 
-$hook['post_controller'] = [
-    'class'    => 'App\Services\Hook',
-    'function' => 'postController',
-    'filename' => 'Hook.php',
-    'filepath' => 'app/Services'
-];
-
-$hook['display_override'] = [
-    'class'    => 'App\Services\Hook',
-    'function' => 'displayOverride',
-    'filename' => 'Hook.php',
-    'filepath' => 'app/Services'
-];
-
-$hook['cache_override'] = [
-    'class'    => 'App\Services\Hook',
-    'function' => 'cacheOverride',
-    'filename' => 'Hook.php',
-    'filepath' => 'app/Services'
-];
-
-$hook['post_system'] = [
-    'class'    => 'App\Services\Hook',
-    'function' => 'postSystem',
-    'filename' => 'Hook.php',
-    'filepath' => 'app/Services'
-];
+};

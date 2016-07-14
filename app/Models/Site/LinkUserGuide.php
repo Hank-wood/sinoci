@@ -2,12 +2,13 @@
 
 namespace App\Models\Site;
 
-trait LinkUserGuide {
+trait LinkUserGuide
+{
 
-    function linkUserGuide () {
-        $target = dirname(BASEPATH).'/user_guide';
-        $link_name = APPPATH.'public/user_guide';
-        `ln -s {$target} {$link_name}`;
-        header('Location: /user_guide');
+    function linkUserGuide()
+    {
+        // 跳转到 sinoci 官网
+        header('Location: https://github.com/sinoci/sinoci');
     }
+
 }

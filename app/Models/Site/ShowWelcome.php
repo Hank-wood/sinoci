@@ -2,13 +2,16 @@
 
 namespace App\Models\Site;
 
-trait ShowWelcome {
+trait ShowWelcome
+{
 
-    function showWelcome () {
+    function showWelcome()
+    {
+        // 添加 CI 默认视图目录
+        $this->load->add_package_path(dirname(BASEPATH) . '/application/');
 
-        // 添加视图目录
-        $this->load->add_package_path(dirname(BASEPATH).'/application/');
-
-        return $this->view('welcome_message');
+        // 加载 CI 默认欢迎页
+        $this->load->view('welcome_message');
     }
+
 }
