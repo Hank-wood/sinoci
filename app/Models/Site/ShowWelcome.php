@@ -11,7 +11,7 @@ trait ShowWelcome
         $this->load->add_package_path(dirname(BASEPATH) . '/application/');
 
         // 加载 CI 默认欢迎页
-        $this->load->view('welcome_message');
+        return app()->view('welcome_message:sinoci');
     }
 
 }
