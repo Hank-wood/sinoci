@@ -21,12 +21,18 @@ class Controller
         // 修复 $this->agent
         $name === 'agent' && $name = 'user_agent';
 
+        // 修复 $this->cache
+        if ($name === 'cache') {
+            $this->load->driver('cache', ['adapter' => 'redis', 'backup' => 'file']);
+            return $this->cache;
+        }
+
         // 映射加载规则
         if ($name === 'load')
             $name = 'Loader';
         else if (in_array($name, ['session']))
             $path = 'libraries/' . $name;
-        else if (in_array($name, ['email']))
+        else if (in_array($name, ['email', 'user_agent']))
             $path = 'libraries';
         else
             $name = is_loaded()[$name];
