@@ -42,3 +42,12 @@ if (noFunc('useEloquent')) {
     }
 
 }
+
+if (noFunc('app')) {
+
+    function app(String $service)
+    {
+        return $service ? $GLOBALS['CI']->{$service}() : $GLOBALS['CI'];
+    }
+    
+}
