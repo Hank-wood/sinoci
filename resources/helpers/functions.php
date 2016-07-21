@@ -49,5 +49,5 @@ if (noFunc('app')) {
     {
         return $service ? $GLOBALS['CI']->{$service}() : $GLOBALS['CI'];
     }
-    
+
 }

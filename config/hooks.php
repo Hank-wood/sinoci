@@ -9,3 +9,10 @@ $hook['pre_system'][] = function () {
     config('enable_eloquent') && useEloquent(config('db'));
 
 };
+
+$hook['post_controller_constructor'][] = function () {
+
+    // 重新绑定实例
+    $app =& get_instance();
+    $app = app();
+};
