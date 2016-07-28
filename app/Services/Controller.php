@@ -2,29 +2,43 @@
 
 namespace App\Services;
 
+use Illuminate\Pagination\AbstractPaginator;
+use Illuminate\Support\Collection;
 use ReflectionClass;
 
 class Controller
 {
 
-    public function _remap(String $func, Array $args)
+    public function _remap($func, array $args)
     {
         // 获取程序执行结果
         $output = call_user_func_array([$this, $func], $args);
 
+        // 转换数组
+        is_array($output) && $output = collect($output);
+
+        // 转换模型
+        $output instanceof Table && $output = collect($output);
+
+        // 转换分页
+        $output instanceof AbstractPaginator && $output = $output->getCollection();
+
+        // 设置响应类型
+        $output instanceof Collection && app()->output->set_content_type('application/json');
+
         // 返回请求结果
-        return $this->output->set_output($output);
+        return app()->output->set_output($output);
     }
 
-    public function __get(String $name)
+    public function __get($name)
     {
-        // 修复 $this->agent
+        // 修复 agent 类库
         $name === 'agent' && $name = 'user_agent';
 
-        // 修复 $this->cache
+        // 修复 cache 类库
         if ($name === 'cache') {
-            $this->load->driver('cache', ['adapter' => 'redis', 'backup' => 'file']);
-            return $this->cache;
+            app()->load->driver('cache', ['adapter' => 'redis', 'backup' => 'file']);
+            return app()->cache;
         }
 
         // 映射加载规则
@@ -39,11 +53,11 @@ class Controller
 
         // 返回 CI 类库
         if ($name) {
-            return load_class($name, $path ?: 'core');
+            return load_class($name, empty($path) ? 'core' : $path);
         }
     }
 
-    public function __call(String $func, Array $args)
+    public function __call($func, array $args)
     {
         // 类名含命名空间
         $class = __NAMESPACE__ . '\\' . studly_case($func);

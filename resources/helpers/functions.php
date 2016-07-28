@@ -1,8 +1,11 @@
 <?php
 
+use Illuminate\Database\Capsule\Manager;
+use Illuminate\Pagination\Paginator;
+
 if (empty(function_exists('noFunc'))) {
 
-    function noFunc(String $name)
+    function noFunc($name)
     {
         return empty(function_exists($name));
     }
@@ -11,7 +14,7 @@ if (empty(function_exists('noFunc'))) {
 
 if (noFunc('noFile')) {
 
-    function noFile(String $path)
+    function noFile($path)
     {
         return empty(file_exists($path));
     }
@@ -20,7 +23,7 @@ if (noFunc('noFile')) {
 
 if (noFunc('config')) {
 
-    function config(String $key)
+    function config($key)
     {
         return array_get(get_config(), $key);
     }
@@ -29,13 +32,13 @@ if (noFunc('config')) {
 
 if (noFunc('useEloquent')) {
 
-    function useEloquent(Array $conn)
+    function useEloquent(array $conn)
     {
-        \Illuminate\Pagination\Paginator::currentPageResolver(function () {
-            return isset($_GET['page']) ? $_GET['page'] : 1;
+        Paginator::currentPageResolver(function () {
+            return empty($_GET['page']) ? 1 : $_GET['page'];
         });
 
-        $manager = new \Illuminate\Database\Capsule\Manager;
+        $manager = new Manager;
         $manager->addConnection($conn);
         $manager->setAsGlobal();
         $manager->bootEloquent();
@@ -45,9 +48,9 @@ if (noFunc('useEloquent')) {
 
 if (noFunc('app')) {
 
-    function app(String $service)
+    function app($service = null)
     {
-        return $service ? $GLOBALS['CI']->{$service}() : $GLOBALS['CI'];
+        return empty($service) ? $GLOBALS['CI'] : $GLOBALS['CI']->{$service}();
     }
 
 }

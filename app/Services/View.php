@@ -13,7 +13,7 @@ class View
     // 渲染数据
     private $data;
 
-    public function __construct(String $view, Array $data, Boolean $noLayout)
+    public function __construct($view, array $data = null, $noLayout = false)
     {
         // 拆分视图与布局
         list($view, $layout) = explode(':', $view);
@@ -40,7 +40,7 @@ class View
         }
 
         // 返回渲染结果
-        return (String)$view;
+        return (string)$view;
     }
 
     private function hasLayout()
@@ -49,7 +49,7 @@ class View
         return $this->layout && file_exists(VIEWPATH . $this->layout . '.php');
     }
 
-    private function __toString()
+    public function __toString()
     {
         return $this->render();
     }

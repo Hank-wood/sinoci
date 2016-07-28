@@ -8,7 +8,7 @@ use Leafo\ScssPhp\Server;
 class Loader extends Controller
 {
 
-    public function scss(String $name)
+    public function scss($name)
     {
         // 优化文件名
         $name && $_GET['p'] = $name . '.scss';
@@ -18,7 +18,7 @@ class Loader extends Controller
         $scss->setFormatter(Crunched::class);
 
         // scss 服务启动
-        $server = new Server(APPPATH . 'resources/assets/scss', config_item('cache_path'), $scss);
+        $server = new Server(APPPATH . 'resources/assets/scss', config('cache_path'), $scss);
         $server->serve();
     }
 

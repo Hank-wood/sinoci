@@ -10,13 +10,13 @@ class Database
     // 数据库结构
     private $schema;
 
-    public function __construct(Array $schema)
+    public function __construct(array $schema)
     {
         // 初始化变量
         $this->schema = $schema;
     }
 
-    public function create(Array $schema)
+    public function create(array $schema)
     {
         // 根据结构生成数据库表
         array_filter($schema ?: $this->schema, [$this, 'createTable'], true);
@@ -25,7 +25,7 @@ class Database
         return $this;
     }
 
-    private function createTable(Array $columns, String $table)
+    private function createTable(array $columns, $table)
     {
         // 检测表是否已存在
         Manager::schema()->hasTable($table) OR
@@ -39,7 +39,7 @@ class Database
         });
     }
 
-    private function createColumns($table, Array $columns)
+    private function createColumns($table, array $columns)
     {
         // 循环定义列
         foreach ($columns as $name => $attributes) {
