@@ -4,7 +4,7 @@
 $_['APP_ENV'] = getenv('APP_ENV') ?: 'development';
 
 // 是否调试模式
-$_['APP_DEBUG'] = getenv('APP_DEBUG') || $_['APP_ENV'] === 'development';
+$_['APP_DEBUG'] = (getenv('APP_DEBUG') OR $_['APP_ENV'] === 'development');
 
 // 设置应用目录
 $_['APPPATH'] = dirname(__DIR__) . '/';
