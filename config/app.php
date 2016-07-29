@@ -4,7 +4,7 @@
 $_['APP_ENV'] = getenv('APP_ENV') ?: 'development';
 
 // 是否调试模式
-$_['APP_DEBUG'] = getenv('APP_DEBUG') OR $_['APP_ENV'] === 'development';
+$_['APP_DEBUG'] = getenv('APP_DEBUG') || $_['APP_ENV'] === 'development';
 
 // 设置应用目录
 $_['APPPATH'] = dirname(__DIR__) . '/';
@@ -28,8 +28,9 @@ $routing['directory'] = ENVIRONMENT;
 
 // 调试环境下配置
 if (APP_DEBUG) {
-    ini_set('display_errors', true);
-    ini_set('opcache.enable', false);
+    ini_set('error_reporting', -1);
+    ini_set('display_errors', 1);
+    ini_set('opcache.enable', 0);
 }
 
 // 请求 CI 框架入口
