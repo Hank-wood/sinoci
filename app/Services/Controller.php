@@ -11,6 +11,9 @@ class Controller
 
     public function _remap($func, array $args)
     {
+        // 排除不存在的方法
+        method_exists($this, $func) OR show_404();
+
         // 获取程序执行结果
         $output = call_user_func_array([$this, $func], $args);
 

@@ -1,9 +1,12 @@
 {
   "name": "sinoci/sinoci",
+  "description": "Simple yet powerful framework for building modern web sites.",
   "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "serve": "php -S localhost:9000 -t public"
+  "homepage": "https://github.com/sinoci/sinoci",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/sinoci/sinoci/issues",
+    "wiki": "https://github.com/sinoci/sinoci/wiki"
   },
   "require": {
     "php": ">=5.4.0",
@@ -23,6 +26,17 @@
       "App\\": "app/"
     }
   },
-  "author": "yozman",
-  "license": "MIT"
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  },
+  "config": {
+    "process-timeout": 0
+  },
+  "scripts": {
+    "serve": "php -S localhost:9000 -t public server.php",
+    "guide": "php -S localhost:9000 -t vendor/codeigniter/framework/user_guide"
+  }
 }
