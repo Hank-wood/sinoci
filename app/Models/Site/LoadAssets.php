@@ -19,6 +19,12 @@ trait LoadAssets
             // 加载资源
             app('Loader')->scss($file);
         }
+
+        // 加载 CI 自带资源
+        if (noFile(APPPATH . 'resources/assets/' . $file) && file_exists($file = dirname(BASEPATH) . '/user_guide/_static/' . $file)) {
+            $this->output->set_content_type(pathinfo($file, PATHINFO_EXTENSION));
+            return file_get_contents($file);
+        }
     }
 
 }
