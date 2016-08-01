@@ -32,8 +32,8 @@ http://localhost:9000
 
 ### TODO
 
-- [ ] 模版引擎: `pug` + `blade`
-- [ ] sass支持: `scssphp`
+- [x] 模版引擎: `pug` + `blade`
+- [x] sass支持: `scssphp` 
 - [ ] 发布命令: `composer build`
 - [ ] 类 `graphsql` 支持
 - [ ] 类 `lazyrest` 可视化后台
