@@ -24,5 +24,5 @@ $config['encryption_key'] = '^encryption_key$';
 // 开启 钩子系统
 $config['enable_hooks'] = true;
 
-// 启用 Eloquent ORM
-$config['enable_eloquent'] = false;
+// 启用 Laravel 扩展
+$config['use_laravel'] = false;

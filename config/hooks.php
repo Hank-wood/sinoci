@@ -1,13 +1,11 @@
 <?php
 
+use App\Services\Laravel;
+
 $hook['pre_system'][] = function () {
 
-    // 加载数据库配置
-    load_class('Config', 'core')->load('database');
-
-    // 开启 Eloquent ORM
-    config('enable_eloquent') && useEloquent(config('db'));
-
+    // 启用 Laravel 扩展
+    config('use_laravel') && new Laravel;
 };
 
 $hook['post_controller_constructor'][] = function () {

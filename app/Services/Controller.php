@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Collection;
-use ReflectionClass;
 
 class Controller
 {
@@ -21,7 +21,7 @@ class Controller
         is_array($output) && $output = collect($output);
 
         // 转换模型
-        $output instanceof Table && $output = collect($output);
+        $output instanceof Model && $output = collect($output);
 
         // 转换分页
         $output instanceof AbstractPaginator && $output = $output->getCollection();
@@ -58,18 +58,6 @@ class Controller
         if ($name) {
             return load_class($name, empty($path) ? 'core' : $path);
         }
-    }
-
-    public function __call($func, array $args)
-    {
-        // 类名含命名空间
-        $class = __NAMESPACE__ . '\\' . studly_case($func);
-
-        // 创建反射类
-        $class = new ReflectionClass($class);
-
-        // 返回实例
-        return $class->newInstanceArgs($args);
     }
 
 }
