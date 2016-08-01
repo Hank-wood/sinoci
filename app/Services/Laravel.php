@@ -2,35 +2,31 @@
 
 namespace App\Services;
 
-use Illuminate\Database\Capsule\Manager;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Container\Container;
+use Illuminate\Database\Capsule\Manager;
+use Illuminate\Events\EventServiceProvider;
+use Illuminate\Filesystem\FilesystemServiceProvider;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Facade;
+use Illuminate\View\ViewServiceProvider;
 
 class Laravel
 {
 
-    private static $container;
+    private $container;
 
     public function __construct()
     {
         // 初始化容器
-        self::$container = $this->getContainer();
+        $this->container = new Container;
 
         // 循环开启功能
         array_filter(config('use_laravel'), function ($v) {
             call_user_func([$this, 'use' . $v]);
         });
-    }
 
-    protected function getContainer()
-    {
-        // 返回单个容器
-        return self::$container ?: new Container;
-    }
-
-    public function useBlade()
-    {
-
+        // 绑定应用容器
+        Facade::setFacadeApplication($this->container);
     }
 
     public function useEloquent()
@@ -44,10 +40,31 @@ class Laravel
         });
 
         // 初始化 Eloquent
-        $manager = new Manager(self::$container);
+        $manager = new Manager($this->container);
         $manager->addConnection(config('db'));
         $manager->setAsGlobal();
         $manager->bootEloquent();
+    }
+
+    public function useBlade()
+    {
+        // 模板相关配置
+        $this->container['config']['view.paths'] = [VIEWPATH];
+        $this->container['config']['view.compiled'] = config('cache_path');
+
+        // 初始化相关服务
+        $this->bootService(EventServiceProvider::class);
+        $this->bootService(FilesystemServiceProvider::class);
+        $this->bootService(ViewServiceProvider::class);
+    }
+
+    public function bootService($provider)
+    {
+        // 获取服务提供者
+        $service = new $provider($this->container);
+
+        // 注册相关服务
+        $service->register();
     }
 
 }

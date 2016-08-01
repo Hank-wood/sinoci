@@ -1,4 +1,4 @@
 <?php
 
 // 始终启用 Laravel 扩展
-$config['use_laravel'] = ['blade', 'eloquent'];
+$config['use_laravel'] = ['eloquent', 'blade'];
