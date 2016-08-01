@@ -11,38 +11,17 @@ class Loader
 
     public function assets($name)
     {
-        // 文件类型
-        $type = head(explode('/', $name));
-
-        // scss 编译
-        if ($type === 'scss') {
-
-            // 相对路径
-            $name = substr($name, strlen($type) + 1);
-
-            // 加载资源
-            $this->scss($name);
-        }
-
         // 加载 CI 自带资源
         noFile(APPPATH . 'resources/assets/' . $name) && $this->backup($name);
 
+        // 文件类型
+        $type = head(explode('/', $name));
+
+        // scss 文件
+        $type === 'scss' && $this->scss($name);
+
         // 结束程序
         exit;
-    }
-
-    public function scss($name)
-    {
-        // 优化文件名
-        $name && $_GET['p'] = $name;
-
-        // scss 编译器
-        $scss = new Compiler;
-        $scss->setFormatter(Crunched::class);
-
-        // scss 服务启动
-        $server = new Server(APPPATH . 'resources/assets/scss', config('cache_path'), $scss);
-        return $server->serve();
     }
 
     public function backup($name)
@@ -61,6 +40,20 @@ class Loader
 
         // 输出响应
         $output->set_output(file_get_contents($name))->_display();
+    }
+
+    public function scss($name)
+    {
+        // 优化文件名
+        $name && $_GET['p'] = $name;
+
+        // scss 编译器
+        $scss = new Compiler;
+        $scss->setFormatter(Crunched::class);
+
+        // scss 服务启动
+        $server = new Server(APPPATH . 'resources/assets', config('cache_path'), $scss);
+        $server->serve();
     }
 
 }
