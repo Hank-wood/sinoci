@@ -39,11 +39,11 @@
     "process-timeout": 0
   },
   "scripts": {
-    "serve": "php -S localhost:9000 -t public server.php",
+    "serve": "php -S localhost:9000 -t public scripts/serve.php",
     "guide": "php -S localhost:9000 -t vendor/codeigniter/framework/user_guide",
     "api": [
-      "php vendor\\sami\\sami\\sami.php update --force api.php",
-      "php -S localhost:9000 -t public/api"
+      "php vendor/sami/sami/sami.php update --force scripts/api.php",
+      "php -S localhost:9000 -t storage/api"
     ]
   }
 }

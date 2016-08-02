@@ -11,7 +11,7 @@ if ($_SERVER['PATH_INFO'] === '/' OR substr($_SERVER['PATH_INFO'], 1, 9) === 'in
 else {
 
     // 检查文件
-    if (file_exists(__DIR__ . '/public' . $_SERVER['PATH_INFO'])) {
+    if (file_exists(dirname(__DIR__) . '/public' . $_SERVER['PATH_INFO'])) {
         return false;
     }
 
@@ -20,4 +20,4 @@ else {
 }
 
 // 执行脚本
-require_once 'public/index.php';
+require_once dirname(__DIR__) . '/public/index.php';
