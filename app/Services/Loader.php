@@ -11,23 +11,24 @@ class Loader
 
     public function assets($name)
     {
-        // 文件类型
+        // 资源类型
         $type = head(explode('/', $name));
 
-        // scss 文件
-        $type === 'scss' && $this->scss($name);
+        // 编译插件
+        method_exists($this, $type) OR $type = 'raw';
 
-        // 加载已有资源
-        noFile(APPPATH . 'resources/assets/' . $name) && $this->backup($name);
+        // 加载资源
+        call_user_func([$this, $type], $name);
 
         // 结束程序
         exit;
     }
 
-    public function backup($name)
+    public function raw($name)
     {
         // 资源路径
         $paths = [
+            APPPATH . 'resources/assets/',
             dirname(BASEPATH) . '/user_guide/_static/',
             APPPATH . 'vendor/sami/sami/Sami/Resources/themes/default/',
         ];

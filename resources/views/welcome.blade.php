@@ -14,7 +14,6 @@
             </div>
         </div>
 
-        <script src="/assets/jquery.js"></script>
-        <script src="/assets/underscore.js"></script>
+        <script src="/assets/js/app.js"></script>
     </body>
 </html>
