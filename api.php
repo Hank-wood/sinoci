@@ -8,7 +8,7 @@ return new Sami(
     Finder::create()
         ->files()
         ->name('*.php')
-        ->exclude('vendor')
+        ->exclude(['storage', 'vendor'])
         ->in(__DIR__),
     [
         'build_dir' => __DIR__ . '/public/api',
