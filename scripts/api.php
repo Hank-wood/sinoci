@@ -15,8 +15,8 @@ $finder->exclude(['storage', 'vendor'])->in($root);
 
 // 生成手册
 return new Sami($finder, [
-    'build_dir' => $root . '/storage/api',
-    'cache_dir' => $root . '/storage/cache',
+    'build_dir' => $root . '/storage/api/',
+    'cache_dir' => $root . '/storage/cache/',
     'filter' => function () {
         return new TrueFilter();
     }

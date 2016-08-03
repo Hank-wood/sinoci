@@ -5,14 +5,9 @@
         <title>SINOCI</title>
 
         <link rel="stylesheet" href="/assets/scss/app.scss">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100">
     </head>
     <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">SINOCI</div>
-            </div>
-        </div>
+        <h1>SINOCI</h1>
 
         <script src="/assets/js/app.js"></script>
     </body>
