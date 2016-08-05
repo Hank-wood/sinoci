@@ -3,6 +3,7 @@
     var scripts = [
             '/assets/js/jquery-1.11.1.min.js',
             '/assets/js/bootstrap.min.js',
+            '/assets/js/typeahead.min.js',
             '/assets/underscore.js'
         ],
         head = document.querySelector('head');
