@@ -10,7 +10,7 @@
   },
   "require": {
     "php": ">=5.4.0",
-    "codeigniter/framework": "3.0.*",
+    "codeigniter/framework": "3.1.*",
     "illuminate/database": "5.0.*",
     "illuminate/pagination": "5.0.*"
   },
