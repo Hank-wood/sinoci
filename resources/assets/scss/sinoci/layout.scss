@@ -1,0 +1,10 @@
+@import 'header.scss';
+@import 'content.scss';
+
+sinoci-layout {
+
+  .btn:focus,
+  .btn:active:focus {
+    outline: none;
+  }
+}

@@ -1,5 +1,5 @@
-<o-内容>
+<sinoci-content>
     <div class="container">
         @yield('内容')
     </div>
-</o-内容>
+</sinoci-content>

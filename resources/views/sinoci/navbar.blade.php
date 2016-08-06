@@ -1,4 +1,4 @@
-<o-导航>
+<sinoci-navbar>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -78,4 +78,4 @@
             </ul>
         </div>
     </nav>
-</o-导航>
+</sinoci-navbar>

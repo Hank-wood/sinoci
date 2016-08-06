@@ -10,7 +10,7 @@ trait LinkUserGuide
     function linkUserGuide()
     {
         // 用户手册
-        return View::make('sinoci.概览');
+        return View::make('sinoci.index');
     }
 
 }
