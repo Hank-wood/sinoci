@@ -1,0 +1,12 @@
+o-导航 {
+  .navbar-nav {
+
+    li:hover > .dropdown-menu {
+      display: block;
+    }
+
+    .fa {
+      font-size: 18px;
+    }
+  }
+}

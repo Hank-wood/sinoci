@@ -1,0 +1,81 @@
+<o-导航>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a>商户管理</a>
+                    <ul class="dropdown-menu">
+                        <li class="active"><a>店铺列表</a></li>
+                        <li><a>菜系分类</a></li>
+                        <li><a>小区地图</a></li>
+                        <li><a>客服中心</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a>订单管理</a>
+                    <ul class="dropdown-menu">
+                        <li><a>管理员下单</a></li>
+                        <li><a>距离计算</a></li>
+                        <li><a>订单信息</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a>超市管理</a>
+                    <ul class="dropdown-menu">
+                        <li><a>商品列表</a></li>
+                        <li><a>分类列表</a></li>
+                        <li><a>参数管理</a></li>
+                        <li><a>品牌管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a>用户管理</a>
+                    <ul class="dropdown-menu">
+                        <li><a>用户列表</a></li>
+                        <li><a>用户地址列表</a></li>
+                        <li><a>管理员列表</a></li>
+                        <li><a>客服中心</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a>配送管理</a>
+                    <ul class="dropdown-menu">
+                        <li><a>跑腿人员管理</a></li>
+                        <li><a>跑腿人员资金记录</a></li>
+                        <li><a>跑腿人员提现</a></li>
+                        <li><a>跑腿后台客服中心</a></li>
+                        <li><a>跑腿APP客服中心</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a>系统操作</a>
+                    <ul class="dropdown-menu">
+                        <li><a>公告管理</a></li>
+                        <li><a>系统设置</a></li>
+                        <li><a>统计列表</a></li>
+                        <li><a>来源统计</a></li>
+                        <li><a>搜索关键词统计</a></li>
+                        <li><a>快捷答复</a></li>
+                        <li><a>广告管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a data-toggle="tooltip" title="消息"><i class="fa fa-comments"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a>新订单</a></li>
+                        <li><a>新任务</a></li>
+                    </ul>
+                </li>
+                <li><a data-toggle="tooltip" title="帮助"><i class="fa fa-question-circle"></i></a></li>
+                <li><a data-toggle="tooltop" title="关闭"><i class="fa fa-power-off"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+</o-导航>

@@ -11,6 +11,9 @@ class Loader
 
     public function assets($name)
     {
+        // 解码资源名
+        $name = rawurldecode($name);
+
         // 资源类型
         $type = head(explode('/', $name));
 
