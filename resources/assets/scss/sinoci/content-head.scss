@@ -1,7 +1,14 @@
 sinoci-content-head {
 
-  .form-control,
-  .input-group-addon {
-    border-radius: 0;
+  .form-control {
+    border-radius: 4px;
+
+    &:focus {
+      border-color: #333;
+    }
+  }
+
+  .btn {
+    height: 34px;
   }
 }

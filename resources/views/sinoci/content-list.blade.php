@@ -2,20 +2,20 @@
     <div class="panel panel-body">
         <div class="wy-alert wy-alert-neutral">共 300 条记录, 每页 50条, 当前第 2 页</div>
         <div class="table-responsive">
-            <table class="table wy-table-bordered-all table-hover">
+            <table class="table table-hover wy-table-bordered-all">
                 <tr>
                     <th>编号</th>
                     <th>IP</th>
                     <th>接入链接</th>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="wy-text-warning">
                         Baldur's Gate II
                     </td>
-                    <td>
+                    <td class="wy-text-danger">
                         Bioware
                     </td>
-                    <td>
+                    <td class="wy-text-success">
                         Boo has a space hamster. Imoen whines a bunch.
                     </td>
                 </tr>

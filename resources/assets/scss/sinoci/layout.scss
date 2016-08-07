@@ -1,10 +1,14 @@
-@import 'header.scss';
-@import 'content.scss';
+@import 'sinoci/header';
+@import 'sinoci/content';
 
 sinoci-layout {
 
   .btn:focus,
   .btn:active:focus {
     outline: none;
+  }
+
+  a, a:hover {
+    color: inherit;
   }
 }
