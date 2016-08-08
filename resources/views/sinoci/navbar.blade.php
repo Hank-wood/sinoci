@@ -1,5 +1,5 @@
 <sinoci-navbar>
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" data-spy="affix" data-offset-top="87">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand">
@@ -67,14 +67,14 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a data-toggle="tooltip" title="消息"><i class="fa fa-comments"></i></a>
+                    <a><i class="fa fa-comments" title="消息"></i></a>
                     <ul class="dropdown-menu">
                         <li><a>新订单</a></li>
                         <li><a>新任务</a></li>
                     </ul>
                 </li>
-                <li><a data-toggle="tooltip" title="帮助"><i class="fa fa-question-circle"></i></a></li>
-                <li><a data-toggle="tooltop" title="关闭"><i class="fa fa-power-off"></i></a></li>
+                <li><a><i class="fa fa-question-circle" title="帮助"></i></a></li>
+                <li><a><i class="fa fa-power-off" title="关闭"></i></a></li>
             </ul>
         </div>
     </nav>

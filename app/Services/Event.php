@@ -16,7 +16,7 @@ class Event
     }
 
     public function shutdown () {
-        dd('shutdown', func_get_args());
+//        dd('shutdown', func_get_args());
     }
 
 }
