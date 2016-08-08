@@ -2,5 +2,9 @@ sinoci-content-list {
 
   .pagination {
     margin: 0;
+
+    .active a {
+      background: linear-gradient(to right bottom, #2196F3, #03A9F4);
+    }
   }
 }

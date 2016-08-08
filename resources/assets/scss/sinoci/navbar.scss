@@ -8,6 +8,10 @@ sinoci-navbar {
       a {
         line-height: 24px;
       }
+
+      .active > a {
+        background: linear-gradient(to right bottom, #2196F3, #03A9F4);
+      }
     }
 
     .fa {
