@@ -7,6 +7,11 @@ sinoci-navbar {
 
       a {
         line-height: 24px;
+        transition: text-indent .4s;
+
+        &:hover {
+          text-indent: 8px;
+        }
       }
 
       .active > a {
