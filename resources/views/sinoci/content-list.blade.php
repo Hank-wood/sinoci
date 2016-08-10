@@ -57,3 +57,23 @@
         </ul>
     </div>
 </sinoci-content-list>
+
+@section('弹窗.修改')
+    <div class="modal fade" id="修改">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-header">
+                <i class="fa fa-times" data-dismiss="modal"></i>
+                <h2>添加</h2>
+            </div>
+            <div class="modal-content">
+                <div class="modal-body">
+                    确认删除？
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-neutral" data-dismiss="modal">取消</button>
+                <button class="btn btn-success">保存</button>
+            </div>
+        </div>
+    </div>
+@endsection

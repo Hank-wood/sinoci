@@ -10,5 +10,7 @@
         <sinoci-layout>
             @yield('页面')
         </sinoci-layout>
+
+        @yield('弹窗')
     </body>
 </html>

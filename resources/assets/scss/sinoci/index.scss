@@ -3,3 +3,46 @@
 @import '/assets/css/theme.css';
 
 @import 'sinoci/layout';
+
+html {
+  overflow-x: visible;
+
+  .modal-open {
+
+    .navbar.affix {
+      padding-right: 17px;
+    }
+
+    .modal-backdrop {
+      background: rgba(255,255,255,.95);
+      opacity: 1;
+    }
+
+    .modal-sm {
+      margin-left: -150px;
+      margin-top: -100px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+    }
+
+    .modal-header {
+
+      .fa-times {
+        float: left;
+        font-size: 18px;
+        width: 30px;
+      }
+
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+
+    .modal-content {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+  }
+}

@@ -11,3 +11,8 @@
     @include('sinoci.header')
     @include('sinoci.content')
 @endsection
+
+@section('弹窗')
+    @yield('弹窗.添加')
+    @yield('弹窗.修改')
+@endsection

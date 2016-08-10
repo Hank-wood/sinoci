@@ -1,5 +1,12 @@
 sinoci-content-head {
 
+  .panel > * + form {
+    border-left: 1px solid #E5E5E5;
+    display: inline-block;
+    margin-left: 8px;
+    padding-left: 12px;
+  }
+
   .form-control {
     border-radius: 4px;
 
