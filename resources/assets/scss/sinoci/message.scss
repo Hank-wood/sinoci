@@ -1,0 +1,35 @@
+sinoci-message {
+  position: absolute;
+  right: 0;
+  top: 100%;
+
+  .wy-tray-container {
+    bottom: auto;
+    left: auto;
+    position: relative;
+
+    li {
+      background: linear-gradient(to right bottom, #2196F3, #03A9F4);
+      margin-top: 21px;
+      animation: sinoci-message-out .33s 3s both;
+
+      .fa {
+        float: left;
+        font-size: 18px;
+        line-height: inherit;
+      }
+    }
+  }
+}
+
+@keyframes sinoci-message-out {
+  from {
+    opacity: 1;
+    height: 56px;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+  }
+}

@@ -1,4 +1,8 @@
-(function (document) {
+(function (window) {
+
+    // 模块队列
+    window.modules = [];
+
     // 类库列表
     var scripts = {
             jquery: {
@@ -8,19 +12,20 @@
                 }
             },
             bootstrap: {
-                src: '/assets/js/bootstrap.min.js',
-                onload: function () {
-                    // 提示框
-                    $(document.body).tooltip({
-                        selector: '[title]'
-                    });
-                }
+                src: '/assets/js/bootstrap.min.js'
             },
             typeahead: {
                 src: '/assets/js/typeahead.min.js'
             },
             underscore: {
-                src: '/assets/underscore.js'
+                src: '/assets/underscore.js',
+                onload: function () {
+                    _.forEach(window.modules, function (Module) {
+                        window.addEventListener('load', function () {
+                            new Module;
+                        });
+                    })
+                }
             }
         };
 
@@ -44,4 +49,4 @@
             document.head.appendChild(script);
         }
     }
-})(document);
+})(window);

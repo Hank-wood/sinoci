@@ -1,6 +1,12 @@
+@import 'sinoci/message';
+
 sinoci-navbar {
   display: block;
   height: 71px;
+
+  .container {
+    position: relative;
+  }
 
   .affix {
     width: 100%;
@@ -8,7 +14,7 @@ sinoci-navbar {
   }
 
   .affix-top {
-    background: none;
+    background: #fff;
     box-shadow: none;
   }
 
@@ -20,7 +26,8 @@ sinoci-navbar {
       a {
         line-height: 24px;
         padding-right: 0;
-        transition: padding-left .4s;
+        position: relative;
+        transition: padding-left .33s;
 
         &:hover {
           padding-left: 28px;
@@ -34,6 +41,23 @@ sinoci-navbar {
 
     .fa {
       font-size: 18px;
+    }
+
+    .badge {
+      background: linear-gradient(to right bottom, #2196F3, #03A9F4);
+      display: block;
+      height: 10px;
+      padding: 0;
+      position: absolute;
+      right: 3px;
+      top: 7px;
+    }
+
+    .label {
+      background: linear-gradient(to right bottom, #2196F3, #03A9F4);
+      position: absolute;
+      right: 7px;
+      top: 7px;
     }
   }
 }

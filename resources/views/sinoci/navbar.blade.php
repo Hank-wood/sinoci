@@ -17,11 +17,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a>订单管理</a>
+                    <a>订单管理<span class="badge"></span></a>
                     <ul class="dropdown-menu">
                         <li><a>管理员下单</a></li>
                         <li><a>距离计算</a></li>
-                        <li><a>订单信息</a></li>
+                        <li><a>订单信息<span class="label">1</span></a></li>
                     </ul>
                 </li>
                 <li>
@@ -67,7 +67,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a><i class="fa fa-comments" title="消息"></i></a>
+                    <a><i class="fa fa-comments" title="消息"></i><span class="badge"></span></a>
                     <ul class="dropdown-menu">
                         <li><a>新订单</a></li>
                         <li><a>新任务</a></li>
@@ -76,6 +76,28 @@
                 <li><a><i class="fa fa-question-circle" title="帮助"></i></a></li>
                 <li><a><i class="fa fa-power-off" title="关闭"></i></a></li>
             </ul>
+
+            @include('sinoci.message')
         </div>
     </nav>
 </sinoci-navbar>
+
+<script>
+    (function (window) {
+
+        // 定义模块
+        var Module = function () {
+            this.$ = $('sinoci-navbar');
+            this.init();
+        };
+
+        // 初始化
+        Module.prototype.init = function () {
+            // 提示框
+            this.$.find('[title]').tooltip();
+        };
+
+        // 添加到队列
+        window.modules.push(Module);
+    })(window);
+</script>
