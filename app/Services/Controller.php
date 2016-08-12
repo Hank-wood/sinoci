@@ -49,7 +49,7 @@ class Controller
             $name = 'Loader';
         else if (in_array($name, ['session']))
             $path = 'libraries/' . $name;
-        else if (in_array($name, ['email', 'user_agent']))
+        else if (in_array($name, ['encryption', 'email', 'user_agent']))
             $path = 'libraries';
         else
             $name = is_loaded()[$name];
