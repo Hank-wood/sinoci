@@ -34,9 +34,22 @@ class Laravel
         // 加载数据库配置
         load_class('Config', 'core')->load('database');
 
-        // 修复分页
+        // 修复分页页码
         Paginator::currentPageResolver(function () {
-            return empty($_GET['page']) ? 1 : $_GET['page'];
+            return app()->input->get('page') ?: 1;
+        });
+
+        // 定制分页样式
+        Paginator::presenter(function ($paginator) {
+
+            // 修复分页路径
+            $paginator->setPath(null);
+
+            // 添加已有参数
+            $paginator->appends(array_except(app()->input->get(), 'page'));
+
+            // 返回分页模板
+            return new Pagination($paginator);
         });
 
         // 初始化 Eloquent
