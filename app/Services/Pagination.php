@@ -17,4 +17,19 @@ class Pagination extends BootstrapThreePresenter
         return parent::getNextButton($text);
     }
 
+    public function render()
+    {
+        return $this->hasPages() ? $this->getPrepend() . parent::render() . $this->getAppend() : '';
+    }
+
+    protected function getPrepend()
+    {
+        return '';
+    }
+
+    protected function getAppend()
+    {
+        return '';
+    }
+
 }
