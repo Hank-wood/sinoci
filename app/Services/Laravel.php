@@ -33,6 +33,7 @@ class Laravel
     {
         // 加载数据库配置
         load_class('Config', 'core')->load('database');
+        load_class('Config', 'core')->load('pagination', true);
 
         // 修复分页页码
         Paginator::currentPageResolver(function () {
