@@ -83,21 +83,17 @@
 </sinoci-navbar>
 
 <script>
-    (function (window) {
+    (function (全局, 节点, 辅助) {
 
-        // 定义模块
-        var Module = function () {
+        var 模块 = function () {
             this.$ = $('sinoci-navbar');
-            this.init();
+            this.初始化();
         };
 
-        // 初始化
-        Module.prototype.init = function () {
-            // 提示框
+        模块.prototype.初始化 = function () {
             this.$.find('[title]').tooltip();
         };
 
-        // 添加到队列
-        window.modules.push(Module);
-    })(window);
+        全局.模块队列.push(模块);
+    })(window, $, _);
 </script>

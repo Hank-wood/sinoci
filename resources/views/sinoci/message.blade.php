@@ -5,28 +5,24 @@
 </sinoci-message>
 
 <script>
-    (function (window) {
+    (function (全局, 节点, 辅助) {
 
-        // 定义模块
-        var Module = function () {
-            this.$ = $('sinoci-message');
-            this.init();
+        var 模块 = function () {
+            this.初始化();
         };
 
-        // 初始化
-        Module.prototype.init = function () {
+        模块.prototype.初始化 = function () {
+            this.$ = 节点('sinoci-message');
             var timer = setInterval(this.alert.bind(this), 1111);
             setTimeout(function () {
                 clearInterval(timer);
             }, 11111);
         };
 
-        // 提示消息
-        Module.prototype.alert = function () {
+        模块.prototype.alert = function () {
             this.$.children('ul').append('<li><i class="fa fa-info-circle"></i><a>您有新消息</a></li>');
         };
 
-        // 添加到队列
-        window.modules.push(Module);
-    })(window);
+        全局.模块队列.push(模块);
+    })(window, $, _);
 </script>
