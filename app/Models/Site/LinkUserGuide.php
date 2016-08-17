@@ -2,7 +2,6 @@
 
 namespace App\Models\Site;
 
-use Illuminate\Support\Facades\View;
 
 trait LinkUserGuide
 {
@@ -10,7 +9,7 @@ trait LinkUserGuide
     function linkUserGuide()
     {
         // 用户手册
-        return View::make('sinoci.index');
+        return app()->view('sinoci.index');
     }
 
 }
