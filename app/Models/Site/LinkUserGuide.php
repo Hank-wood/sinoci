@@ -2,7 +2,6 @@
 
 namespace App\Models\Site;
 
-
 trait LinkUserGuide
 {
 
