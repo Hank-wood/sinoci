@@ -68,6 +68,8 @@ class Controller
 
     public function view($data = null, $view = null)
     {
+        is_string($data) && $view = $data;
+
         $view = $view ?: implode('.', [
             APP_ENV, app()->uri->rsegment(1), app()->uri->rsegment(2)
         ]);
