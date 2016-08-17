@@ -12,10 +12,13 @@ class Controller
     public function _remap($func, array $args)
     {
         // 排除不存在的方法
-        method_exists($this, $func) OR show_404();
+        method_exists(app(), $func) OR show_404();
+
+        // 加载类库和语言
+        app()->load->add_package_path(APPPATH . 'resources');
 
         // 获取程序执行结果
-        $output = call_user_func_array([$this, $func], $args);
+        $output = call_user_func_array([app(), $func], $args);
 
         // 转换数组
         is_array($output) && $output = collect($output);
