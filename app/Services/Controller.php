@@ -5,9 +5,12 @@ namespace App\Services;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\View;
 
 class Controller
 {
+
+    public $data = [];
 
     public function _remap($func, array $args)
     {
@@ -52,7 +55,7 @@ class Controller
             $name = 'Loader';
         else if (in_array($name, ['session']))
             $path = 'libraries/' . $name;
-        else if (in_array($name, ['encryption', 'email', 'user_agent']))
+        else if (in_array($name, ['email', 'encryption', 'user_agent']))
             $path = 'libraries';
         else
             $name = is_loaded()[$name];
@@ -61,6 +64,15 @@ class Controller
         if ($name) {
             return load_class($name, empty($path) ? 'core' : $path);
         }
+    }
+
+    public function view($data = null, $view = null)
+    {
+        $view = $view ?: implode('.', [
+            APP_ENV, app()->uri->rsegment(1), app()->uri->rsegment(2)
+        ]);
+
+        return View::make($view, compact('data'));
     }
 
 }
