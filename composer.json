@@ -40,10 +40,9 @@
   },
   "scripts": {
     "serve": "php -S localhost:9000 -t public scripts/serve.php",
-    "guide": "php -S localhost:9000 -t vendor/codeigniter/framework/user_guide",
-    "api": [
-      "php vendor/sami/sami/sami.php update --force scripts/api.php",
-      "php -S localhost:9000 -t docs/api"
+    "docs": [
+      "php vendor/sami/sami/sami.php update --force scripts/docs.php",
+      "php -S localhost:9000 -t docs"
     ]
   }
 }

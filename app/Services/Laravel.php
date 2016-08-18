@@ -13,6 +13,7 @@ use Illuminate\View\ViewServiceProvider;
 class Laravel
 {
 
+    // Laravel 容器
     private $container;
 
     public function __construct()

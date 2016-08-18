@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\View;
 class Controller
 {
 
+    // 方法之间共享数据存放处
     public $data = [];
 
     public function _remap($func, array $args)
@@ -68,12 +69,15 @@ class Controller
 
     public function view($data = null, $view = null)
     {
+        // 转换无数据模板
         is_string($data) && $view = $data;
 
+        // 映射相应模板
         $view = $view ?: implode('.', [
             APP_ENV, app()->uri->rsegment(1), app()->uri->rsegment(2)
         ]);
 
+        // 返回渲染结果
         return View::make($view, compact('data'));
     }
 
