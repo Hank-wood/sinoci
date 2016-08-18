@@ -1,10 +1,10 @@
 <?php
 
 // 设置运行环境
-$_['APP_ENV'] = getenv('APP_ENV') ?: 'development';
+$_['APP_ENV'] = getenv('APP_ENV') ?: 'develop';
 
 // 是否调试模式
-$_['APP_DEBUG'] = (getenv('APP_DEBUG') OR $_['APP_ENV'] === 'development');
+$_['APP_DEBUG'] = (getenv('APP_DEBUG') OR $_['APP_ENV'] === 'develop');
 
 // 设置应用目录
 $_['APPPATH'] = dirname(__DIR__) . '/';
