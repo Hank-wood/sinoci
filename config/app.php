@@ -16,9 +16,9 @@ $_['BASEPATH'] = $_['APPPATH'] . 'vendor/codeigniter/framework/system/';
 $_['VIEWPATH'] = $_['APPPATH'] . 'resources/views/';
 
 // 循环定义系统常量
-array_filter($_, function ($v, $k) {
+array_walk($_, function ($v, $k) {
     defined($k) OR define($k, $v);
-}, true);
+});
 
 // 定义 ENVIRONMENT 常量：运行环境
 define('ENVIRONMENT', APP_ENV);
