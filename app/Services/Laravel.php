@@ -22,7 +22,7 @@ class Laravel
         $this->container = new Container;
 
         // 循环开启功能
-        array_walk(config('use_laravel'), function ($v) {
+        array_filter(config('use_laravel'), function ($v) {
             call_user_func([$this, 'use' . $v]);
         });
 
