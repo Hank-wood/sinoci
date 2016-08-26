@@ -8,7 +8,7 @@ $hook['pre_system'][] = function () {
     // 启用 Laravel 扩展
     config('use_laravel') && new Laravel;
 
-    // 触发退出事件
+    // 捕获异常退出
     set_error_handler([new Event, 'error']);
     set_exception_handler([new Event, 'exception']);
 };
