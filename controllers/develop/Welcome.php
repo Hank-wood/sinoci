@@ -1,8 +1,8 @@
 <?php
 
-use App\Services\Controller;
 use App\Models\Site\ShowWelcome;
 use App\Models\Site\LinkUserGuide;
+use App\Services\Controller;
 
 class Welcome extends Controller
 {

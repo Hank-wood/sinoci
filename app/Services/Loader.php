@@ -71,8 +71,10 @@ class Loader
 
         // scss 编译器
         $scss = new Compiler;
-        $scss->setFormatter(Crunched::class);
         $scss->addImportPath(APPPATH . 'resources/assets/scss/');
+
+        // 非调试环境下压缩
+        APP_DEBUG OR $scss->setFormatter(Crunched::class);
 
         // scss 服务启动
         $server = new Server(APPPATH . 'resources/assets', config('cache_path'), $scss);
