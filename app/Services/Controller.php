@@ -42,8 +42,8 @@ class Controller
 
     public function __get($name)
     {
-        // 修复 agent 类库
-        $name === 'agent' && $name = 'user_agent';
+        // 别名映射转换
+        array_key_exists($name, $alias = ['agent' => 'user_agent', 'unit' => 'unit_test']) && $name = $alias[$name];
 
         // 修复 cache 类库
         if ($name === 'cache') {
@@ -56,7 +56,7 @@ class Controller
             $name = 'Loader';
         else if (in_array($name, ['session']))
             $path = 'libraries/' . $name;
-        else if (in_array($name, ['email', 'encryption', 'upload', 'user_agent']))
+        else if (in_array($name, ['email', 'encryption', 'unit_test', 'upload', 'user_agent']))
             $path = 'libraries';
         else
             $name = is_loaded()[$name];
