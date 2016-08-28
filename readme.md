@@ -18,6 +18,7 @@ sinoci
 - [x] 使用 phpcomposer 中国全量镜像
 - [x] 完全自由可配置
 - [x] 注释覆盖率 100%
+- [x] 管理员后台模板: `sinoci`
 
 ### 安装依赖并运行
 
@@ -32,23 +33,17 @@ composer serve
 http://localhost:9000
 ```
 
-### 查看 CI 手册
-
-```
-composer guide
-```
-
 ### 查看应用手册
 
 ```
-composer api
+composer docs
 ```
 
 ---
 
 ### TODO
 
-- [ ] 管理员后台模板: `sinoci`
+- [ ] 集成 `workerman`
 - [ ] 发布命令: `composer build`
 - [ ] 类 `graphsql` 支持
 - [ ] 类 `lazyrest` 可视化后台
