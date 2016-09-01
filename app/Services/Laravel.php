@@ -32,6 +32,9 @@ class Laravel
 
     public function useEloquent()
     {
+        // 初始化相关服务
+        $this->bootService(EventServiceProvider::class);
+
         // 加载数据库配置
         load_class('Config', 'core')->load('database');
         load_class('Config', 'core')->load('pagination', true);
@@ -71,7 +74,6 @@ class Laravel
         $this->container['config']['view.compiled'] = config('cache_path');
 
         // 初始化相关服务
-        $this->bootService(EventServiceProvider::class);
         $this->bootService(FilesystemServiceProvider::class);
         $this->bootService(ViewServiceProvider::class);
     }
