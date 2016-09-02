@@ -18,6 +18,15 @@ if (noFunc('noFile')) {
 
 }
 
+if (noFunc('app')) {
+
+    function app()
+    {
+        return $GLOBALS['CI'];
+    }
+
+}
+
 if (noFunc('config')) {
 
     function config($key)
@@ -27,11 +36,19 @@ if (noFunc('config')) {
 
 }
 
-if (noFunc('app')) {
+if (noFunc('lang')) {
 
-    function app()
+    function lang($key, $lang = null)
     {
-        return $GLOBALS['CI'];
+        $line = explode('@', $key);
+
+        $lang OR $lang = app()->session->language ?: config('language');
+
+        $file = array_get($line, 1) ?: APP_ENV;
+
+        app()->lang->load($file, $lang, false, false);
+
+        return app()->lang->line($line[0]);
     }
 
 }
