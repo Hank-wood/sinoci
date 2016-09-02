@@ -18,9 +18,6 @@ $config['encryption_key'] = '^encryption_key$';
 // 配置 错误提示模版目录
 $config['error_views_path'] = dirname(BASEPATH) . '/application/views/errors/';
 
-// 设置 默认语言
-$config['language'] = 'chinese';
-
 // 配置 日志目录
 $config['log_path'] = APPPATH . 'storage/logs/';
 
