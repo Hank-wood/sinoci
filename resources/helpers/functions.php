@@ -48,7 +48,7 @@ if (noFunc('lang')) {
 
         app()->lang->load($file, $lang, false, false);
 
-        return app()->lang->line($line[0]);
+        return app()->lang->line($line[0]) ?: $line[0];
     }
 
 }
