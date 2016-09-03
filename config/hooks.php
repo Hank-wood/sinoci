@@ -2,6 +2,7 @@
 
 use App\Services\Event;
 use App\Services\Laravel;
+use Illuminate\Database\Capsule\Manager;
 
 $hook['pre_system'][] = function () {
 
@@ -11,6 +12,12 @@ $hook['pre_system'][] = function () {
     // 捕获异常退出
     set_error_handler([new Event, 'error']);
     set_exception_handler([new Event, 'exception']);
+};
+
+$hook['pre_controller'][] = function () {
+
+    // 调试状态下开启查询日志
+    APP_DEBUG && Manager::connection()->enableQueryLog();
 };
 
 $hook['post_controller_constructor'][] = function () {

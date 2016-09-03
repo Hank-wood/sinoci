@@ -62,9 +62,6 @@ class Laravel
         $manager->addConnection(config('db'));
         $manager->setAsGlobal();
         $manager->bootEloquent();
-
-        // 调试状态下开启查询日志
-        APP_DEBUG && $manager->getConnection()->enableQueryLog();
     }
 
     public function useBlade()
