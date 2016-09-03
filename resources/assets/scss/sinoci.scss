@@ -1,8 +1,14 @@
-@import '/assets/css/bootstrap.min.css';
-@import '/assets/css/bootstrap-theme.min.css';
-@import '/assets/css/theme.css';
+@import 'sinoci/header';
+@import 'sinoci/content';
 
-@import 'sinoci/layout';
+.btn:focus,
+.btn:active:focus {
+  outline: none;
+}
+
+a, a:hover {
+  color: inherit;
+}
 
 html {
   overflow-x: visible;

@@ -82,18 +82,27 @@
     </nav>
 </sinoci-navbar>
 
-<script>
-    (function (全局, 节点, 辅助) {
+@section('脚本')
+    @parent
+    <script>
+        (function (全局, 节点, 辅助) {
 
-        var 模块 = function () {
-            this.$ = $('sinoci-navbar');
-            this.初始化();
-        };
+            var 模块 = function () {
+                this.初始化();
+            };
 
-        模块.prototype.初始化 = function () {
-            this.$.find('[title]').tooltip();
-        };
+            模块.prototype.初始化 = function () {
+                this.$根 = 节点('sinoci-navbar');
+                this.$图标 = this.$根.find('[title]');
 
-        全局.模块队列.push(模块);
-    })(window, $, _);
-</script>
+                this.图标说明();
+            };
+
+            模块.prototype.图标说明 = function () {
+                this.$图标.tooltip();
+            };
+
+            全局.模块队列.push(模块);
+        })(window, $, _);
+    </script>
+@endsection
