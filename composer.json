@@ -39,10 +39,11 @@
     "process-timeout": 0
   },
   "scripts": {
-    "serve": "php -S localhost:9000 -t public scripts/serve.php",
     "docs": [
       "php vendor/sami/sami/sami.php update --force scripts/docs.php",
       "php -S localhost:9000 -t docs"
-    ]
+    ],
+    "preview": "php -S 0.0.0.0:9000 -t public scripts/serve.php",
+    "serve": "php -S localhost:9000 -t public scripts/serve.php"
   }
 }
