@@ -1,15 +1,23 @@
 <?php
 
-use App\Models\Site\ShowWelcome;
-use App\Models\Site\LinkUserGuide;
 use App\Services\Controller;
 
 class Welcome extends Controller
 {
 
-    use ShowWelcome, LinkUserGuide {
-        ShowWelcome::showWelcome as index;
-        LinkUserGuide::linkUserGuide as guide;
+    public function __construct()
+    {
+        app('Permission')->basic();
+    }
+
+    public function index()
+    {
+        return app('Site')->showWelcome();
+    }
+
+    public function guide()
+    {
+        return app('Site')->linkUserGuide();
     }
 
 }

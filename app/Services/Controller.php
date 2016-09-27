@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\View;
 class Controller
 {
 
-    // 方法之间共享数据存放处
-    public $data = [];
-
     public function _remap($func, array $args)
     {
         // 排除不存在的方法

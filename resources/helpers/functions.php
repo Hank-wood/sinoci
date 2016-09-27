@@ -20,9 +20,15 @@ if (noFunc('noFile')) {
 
 if (noFunc('app')) {
 
-    function app()
+    function app($name = null)
     {
-        return $GLOBALS['CI'];
+        if (empty($name)) {
+            return $GLOBALS['CI'];
+        }
+
+        $class = '\\App\\Models\\' . $name;
+
+        return new $class;
     }
 
 }
